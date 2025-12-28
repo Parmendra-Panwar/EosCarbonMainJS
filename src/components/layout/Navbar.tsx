@@ -1,5 +1,5 @@
 import { useAppDispatch } from "../../app/hooks";
-import { logout } from "../../app/authSlice";
+import { logout } from "../../features/auth/authSlice";
 
 export default function Navbar() {
   const dispatch = useAppDispatch();

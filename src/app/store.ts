@@ -1,9 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
-import authReducer from "./authSlice"
+import authReducer from "../features/auth/authSlice"
+import carbonCreditReducer from "../features/carbonCredit/carbonCreditSlice"
+import transactionReducer from "../features/transaction/transactionSlice"
 
 export const store = configureStore({
   reducer: {
     auth: authReducer,
+    carbonCredit: carbonCreditReducer,
+    transaction: transactionReducer,
   },
 });
 

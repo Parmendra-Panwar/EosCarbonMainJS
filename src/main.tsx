@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router";
 import { store } from "./app/store";
 import AppRoutes from "./routes/AppRoutes";
-import { restoreSession } from "./app/authSlice";
+import { restoreSession } from "./features/auth/authSlice";
 import "./styles/index.css";
 
 const session = localStorage.getItem("session");

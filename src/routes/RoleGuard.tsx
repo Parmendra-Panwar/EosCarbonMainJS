@@ -1,6 +1,6 @@
 import { Navigate } from "react-router";
 import { useAppSelector } from "../app/hooks";
-import { type UserRole } from "../app/authSlice";
+import { type UserRole } from "../features/auth/authSlice";
 import type { ReactNode } from "react"
 
 type Props = {

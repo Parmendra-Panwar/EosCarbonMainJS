@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useAppDispatch } from "../../app/hooks";
-import { loginSuccess, type UserRole } from "../../app/authSlice";
+import { loginSuccess, type UserRole } from "../../features/auth/authSlice";
 
 const roleFields: Record<UserRole, string> = {
   farmer: "Land Details",
