@@ -1,13 +1,14 @@
+import type { ButtonHTMLAttributes, ReactNode } from "react";
+
 type Props = {
-  children: React.ReactNode;
+  children: ReactNode;
   variant?: "primary" | "secondary" | "danger";
-  onClick?: () => void;
-  disabled?: boolean;
-};
+} & ButtonHTMLAttributes<HTMLButtonElement>;
 
 export default function Button({
   children,
   variant = "primary",
+  className = "",
   ...props
 }: Props) {
   const styles = {
@@ -18,8 +19,8 @@ export default function Button({
 
   return (
     <button
-      className={`px-4 py-2 rounded font-medium transition disabled:opacity-50 ${styles[variant]}`}
       {...props}
+      className={`px-4 py-2 rounded font-medium transition disabled:opacity-50 ${styles[variant]} ${className}`}
     >
       {children}
     </button>

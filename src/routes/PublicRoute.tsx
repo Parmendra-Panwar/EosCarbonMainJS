@@ -8,5 +8,5 @@ type Props = {
 
 export default function ProtectedRoute({ children }: Props) {
   const isAuth = useAppSelector((s) => s.auth.isAuthenticated);
-  return isAuth ? <Navigate to="/" replace /> : children;
+  return isAuth ? <Navigate to="/dashboard" replace /> : children;
 }

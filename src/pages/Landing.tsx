@@ -1,7 +1,9 @@
 import Button from "../components/ui/Button";
 import UserCard from "../components/ui/UserCard";
+import { useNavigate } from "react-router-dom";
 
 export default function Landing() {
+  const navigate = useNavigate();
   return (
     <div className="min-h-screen px-6 py-12 max-w-7xl mx-auto">
       {/* Hero */}
@@ -15,8 +17,8 @@ export default function Landing() {
         </p>
 
         <div className="flex justify-center gap-4 mt-8">
-          <Button label="Login" />
-          <Button label="Signup" variant="secondary" />
+          <Button variant="primary" onClick={() => navigate("/login")} > Login </Button>
+          <Button variant="secondary" onClick={() => navigate("/signup")} > Signup </Button>
         </div>
       </section>
 
