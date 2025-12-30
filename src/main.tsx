@@ -4,7 +4,13 @@ import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router";
 import { store } from "./app/store";
 import AppRoutes from "./routes/AppRoutes";
+import { restoreSession } from "./features/auth/authSlice";
 import "./styles/index.css";
+
+const session = localStorage.getItem("session");
+if (session) {
+  store.dispatch(restoreSession(JSON.parse(session)));
+}
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>

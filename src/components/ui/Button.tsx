@@ -1,15 +1,28 @@
+import type { ButtonHTMLAttributes, ReactNode } from "react";
+
 type Props = {
-  label: string;
-  variant?: "primary" | "secondary";
-};
+  children: ReactNode;
+  variant?: "primary" | "secondary" | "danger";
+} & ButtonHTMLAttributes<HTMLButtonElement>;
 
-export default function Button({ label, variant = "primary" }: Props) {
-  const base =
-    "px-6 py-3 rounded-lg font-medium transition focus:outline-none";
-  const styles =
-    variant === "primary"
-      ? "bg-primary hover:bg-teal-700"
-      : "border border-slate-600 hover:bg-slate-800";
+export default function Button({
+  children,
+  variant = "primary",
+  className = "",
+  ...props
+}: Props) {
+  const styles = {
+    primary: "bg-primary hover:bg-teal-700",
+    secondary: "border border-slate-600 hover:bg-slate-800",
+    danger: "bg-red-600 hover:bg-red-700",
+  };
 
-  return <button className={`${base} ${styles}`}>{label}</button>;
+  return (
+    <button
+      {...props}
+      className={`px-4 py-2 rounded font-medium transition disabled:opacity-50 ${styles[variant]} ${className}`}
+    >
+      {children}
+    </button>
+  );
 }
